@@ -9,13 +9,13 @@ class NumberOperation:
 
     def print_info(self):
         try:
-            first_number = int(self.first_number)
-            second_number = int(self.second_number)
+            first_number = float(self.first_number)
+            second_number = float(self.second_number)
             print(
-                "{} + {} = {}".format(
+                "{} + {} = {:.3f}".format(
                     self.first_number,
                     self.second_number,
-                    first_number + second_number,
+                    first_number + second_number
                 )
             )
         except ValueError:
