@@ -8,13 +8,15 @@
 # }
 from pprint import pprint
 
+KEY_NUMBER = 10
+VALUE_NUMBER = 10
+
 
 def get_dividers_dict():
-    key_number = 10
-    value_number = 10
+
     return {
-        k: [v for v in range(1, value_number + 1) if v % k == 0]
-        for k in range(1, key_number + 1)
+        k: [v for v in range(1, VALUE_NUMBER + 1) if v % k == 0]
+        for k in range(1, KEY_NUMBER + 1)
     }
 
 
