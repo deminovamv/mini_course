@@ -25,10 +25,11 @@
 #
 # P.S. Во всех заранее созданных методах класса обращаться к storage можно через self.storage
 import random
+from pprint import pprint
 import typing as t
 
-INITIAL_SIZE = 50
-MULTIPLIER = 1
+INITIAL_SIZE = 10 ** 4
+MULTIPLIER = 3
 
 
 class HashTable:
@@ -80,11 +81,16 @@ class HashTable:
 
     def _hash(self, value) -> int:
         # Based on value return index of element
+        # value = (value ** 2 // 3)
+
         hash_value = value % INITIAL_SIZE
         return hash_value
 
     def print(self):
-        print(self.storage)
+        pprint({k: v for k, v in enumerate(self.storage) if v})
+
+    def factor_downloads(self):
+        print(len([v for v in self.storage if v]) / len(self.storage))
 
 
 if __name__ == "__main__":
@@ -92,6 +98,7 @@ if __name__ == "__main__":
     for _ in range(INITIAL_SIZE // MULTIPLIER):
         hash_table.add(random.choice(range(INITIAL_SIZE * MULTIPLIER)))
     hash_table.print()
+    hash_table.factor_downloads()
     # print(hash_table.delete(11))
     # print(hash_table.delete(12))
     # print(hash_table.delete(13))
