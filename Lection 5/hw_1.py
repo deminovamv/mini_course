@@ -29,7 +29,8 @@ class Building:
 
     def print_inf(self):
         print(
-            f"У строения по адресу {self.address}. Дверь {'открыта' if self.door else 'закрыта'}. Площадь равна {self.area}"
+            f"{'У квартиры'if isinstance(self,Apartment)  else 'На даче' if isinstance(self,СountryHouse) else 'У строения' } "
+            f"по адресу {self.address}. Дверь {'открыта' if self.door else 'закрыта'}. Площадь равна {self.area}"
         )
 
     def concatinate_build(self, building_second):
@@ -68,10 +69,10 @@ class Apartment(Building):
     def close(self, index):
         self.list_window[index] = False
 
-    def print_inf(self):
-        print(
-            f"У квартиры по адресу {self.address}. Дверь { 'открыта' if self.door else 'закрыта'}."
-        )
+    # def print_inf(self):
+    #     print(
+    #         f"У квартиры по адресу {self.address}. Дверь { 'открыта' if self.door else 'закрыта'}."
+    #     )
 
     def open_window_check(self):
         window_check = collections.Counter(self.list_window)
@@ -99,10 +100,10 @@ class СountryHouse(Building):
             f"На даче по адресу {self.address} { 'есть забор' if self.fence else 'забора нет'}"
         )
 
-    def print_inf(self):
-        print(
-            f"На даче по адресу {self.address}. Дверь { 'открыта' if self.door else 'закрыта'}."
-        )
+    # def print_inf(self):
+    #     print(
+    #         f"На даче по адресу {self.address}. Дверь { 'открыта' if self.door else 'закрыта'}."
+    #     )
 
 
 if __name__ == "__main__":
