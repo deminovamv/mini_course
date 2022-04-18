@@ -27,22 +27,22 @@ class Building:
         if self.door:
             self.door = False
 
-    def print_inf(self):
-        print(
+    def __str__(self):
+        return (
             f"{'У квартиры'if isinstance(self,Apartment)  else 'На даче' if isinstance(self,СountryHouse) else 'У строения' } "
             f"по адресу {self.address}. Дверь {'открыта' if self.door else 'закрыта'}. Площадь равна {self.area}"
         )
 
-    def concatinate_build(self, building_second):
-        if self.area >= building_second.area:
+    def __add__(self, other):
+        if self.area >= other.area:
             address = self.address
         else:
-            address = building_second.address
-        if self.door or building_second.door:
+            address = other.address
+        if self.door or other.door:
             door = True
         else:
             door = False
-        area = self.area + building_second.area
+        area = self.area + other.area
 
         return Building(door, address, area)
 
@@ -114,17 +114,18 @@ if __name__ == "__main__":
     print(building_2.list_window)
     building_2.close(1)
     print(building_2.list_window)
-    building_2.print_inf()
+    print(building_2)
     building_2.open_door()
-    building_2.print_inf()
+    print(building_2)
     building_2.open_window_check()
     building_2.close_door()
 
     building_3 = СountryHouse(False, "УЛИЦА 2", 50, False)
-    building_3.print_inf()
+    print(building_3)
     building_3.check_fence()
     building_3.add_fence()
     building_3.check_fence()
     building_3.add_fence()
-    building_4 = building_2.concatinate_build(building_3)
-    building_4.print_inf()
+    building_4 = building_2 + building_3
+    print(building_4)
+    print(building_2 + building_3)
