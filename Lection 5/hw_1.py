@@ -28,10 +28,7 @@ class Building:
             self.door = False
 
     def __str__(self):
-        return (
-            f"{'У квартиры'if isinstance(self,Apartment)  else 'На даче' if isinstance(self,СountryHouse) else 'У строения' } "
-            f"по адресу {self.address}. Дверь {'открыта' if self.door else 'закрыта'}. Площадь равна {self.area}"
-        )
+        return f"У строения по адресу {self.address}. Дверь {'открыта' if self.door else 'закрыта'}. Площадь равна {self.area}"
 
     def __add__(self, other):
         if self.area >= other.area:
@@ -69,10 +66,8 @@ class Apartment(Building):
     def close(self, index):
         self.list_window[index] = False
 
-    # def print_inf(self):
-    #     print(
-    #         f"У квартиры по адресу {self.address}. Дверь { 'открыта' if self.door else 'закрыта'}."
-    #     )
+    def __str__(self):
+        return f"У квартиры по адресу {self.address}. Дверь {'открыта' if self.door else 'закрыта'}. Площадь равна {self.area}"
 
     def open_window_check(self):
         window_check = collections.Counter(self.list_window)
@@ -100,10 +95,8 @@ class СountryHouse(Building):
             f"На даче по адресу {self.address} { 'есть забор' if self.fence else 'забора нет'}"
         )
 
-    # def print_inf(self):
-    #     print(
-    #         f"На даче по адресу {self.address}. Дверь { 'открыта' if self.door else 'закрыта'}."
-    #     )
+    def __str__(self):
+        return f"На даче по адресу {self.address}. Дверь {'открыта' if self.door else 'закрыта'}. Площадь равна {self.area}"
 
 
 if __name__ == "__main__":
