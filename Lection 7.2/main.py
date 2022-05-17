@@ -53,3 +53,12 @@ if __name__ == "__main__":
             },
         )
     )
+    # ответы:
+    # {'body': ['Маша', 'Даша', 'Катя', 'Саша', 'Guido van Rossum', 'Виктор'], 'code': 200, 'status': 'OK'}
+    # {'body': [{'grades': '2,5,5,3,4,5', 'school_subject': 'литература'},
+    #           {'grades': '2,5,5,3,4,5', 'school_subject': 'история'},
+    #           {'grades': '2,5,5,5,4,5', 'school_subject': 'история'},
+    #           {'grades': '2,5,5,3,3,4,5', 'school_subject': 'история'}], 'code': 200, 'status': 'OK'}
+    # {'body': None, 'code': 404, 'error': 'Виктор is in the file', 'status': 'KO'}
+    # {'body': None, 'code': 404, 'error': 'NameNotFound, Викто1111р ', 'status': 'KO'}
+    # {'body': None, 'code': 404, 'error': 'such assessments already exist', 'status': 'KO'}
