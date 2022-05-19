@@ -1,33 +1,29 @@
 class MyError(Exception):
-    def __init__(self, *args):
-        if args:
-            self.message = args[0]
-        else:
-            self.message = None
+    pass
 
     def text_error(self):
-        if self.message:
-            return self.message
+        if self.args[0]:
+            return args[0]
         else:
             return "Error"
 
 
 class WrongPath(MyError):
     def text_error(self):
-        if self.message:
-            return "WrongPath, {0} ".format(self.message)
+        if self.args[0]:
+            return "WrongPath, {0} ".format(self.args[0])
         else:
             return "WrongPath"
 
 
 class NameNotFound(MyError):
     def text_error(self):
-        if self.message:
-            return "NameNotFound, {0} ".format(self.message)
+        if self.args[0]:
+            return "NameNotFound, {0} ".format(self.args[0])
         else:
             return "NameNotFound"
 
 
 class StudentError(MyError):
     def text_error(self):
-        return self.message
+        return self.args[0]

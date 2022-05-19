@@ -17,6 +17,7 @@ class Students:
             data = {}
             data["body"] = None
             data["code"] = None
+            data["error"] = None
             try:
                 if path in self.routes_get and not body:
                     data["body"] = func(self, path, param)
@@ -33,7 +34,7 @@ class Students:
                 data["code"] = 500
                 data["error"] = e
             finally:
-                if data["body"]:
+                if not data["error"]:
                     data["status"] = "OK"
                     data["code"] = 200
                 else:
